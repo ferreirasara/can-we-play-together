@@ -22,7 +22,7 @@ function GameTags({ tags }: GameTagsProps) {
       gap={1}
       p={1}
     >
-      {tags?.map(tag => <Chip label={tag} />)}
+      {tags?.map((tag, index) => <Chip label={tag} key={index} />)}
     </Box>
   )
 }
