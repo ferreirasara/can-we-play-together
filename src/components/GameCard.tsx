@@ -34,7 +34,7 @@ function GameImage({ imageUrl }: GameImageProps) {
   return (
     <CardMedia
       component="img"
-      sx={{ height: 151 }}
+      sx={{ height: 215 * 0.7, width: 460 * 0.7 }}
       image={imageUrl}
     />
   )
@@ -44,13 +44,21 @@ export type GameCardProps = {
   title: string
   imageUrl: string
   tags: string[]
+  description: string
 }
-export default function GameCard({ imageUrl, tags, title }: GameCardProps) {
+export default function GameCard({ imageUrl, tags, title, description }: GameCardProps) {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: isDesktop ? 'row' : 'column-reverse' }}>
+    <Card sx={{
+      display: 'flex',
+      flexDirection: isDesktop ? 'row' : 'column-reverse',
+      width: '100%',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      p: 1,
+    }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <GameTitle title={title} />
         <GameTags tags={tags} />

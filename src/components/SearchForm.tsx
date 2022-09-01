@@ -1,12 +1,24 @@
-import { Box, Button, TextField } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
+import { Box, TextField } from "@mui/material";
 
-export default function SearchForm() {
+type SearchFormProps = {
+  handleClick: () => void
+  loading: boolean
+  onChangeUserId1: (value: string) => void
+  onChangeUserId2: (value: string) => void
+}
+export default function SearchForm({
+  handleClick,
+  loading,
+  onChangeUserId1,
+  onChangeUserId2,
+}: SearchFormProps) {
   return (
     <Box
       display="flex"
       flexDirection="column"
       gap={2}
-      p={2}
+      p={1}
     >
       <Box
         display="flex"
@@ -14,10 +26,32 @@ export default function SearchForm() {
         alignItems="center"
         gap={2}
       >
-        <TextField fullWidth id="user1" label="Username 1" variant="outlined" />
-        <TextField fullWidth id="user2" label="Username 2" variant="outlined" />
+        <TextField
+          disabled={loading}
+          fullWidth
+          id="user1"
+          label="Username 1"
+          variant="outlined"
+          onChange={(value) => onChangeUserId1(value?.currentTarget?.value)}
+        />
+        <TextField
+          disabled={loading}
+          fullWidth
+          id="user2"
+          label="Username 2"
+          variant="outlined"
+          onChange={(value) => onChangeUserId2(value?.currentTarget?.value)}
+        />
       </Box>
-      <Button fullWidth variant="contained" size="large">Search</Button>
+      <LoadingButton
+        loading={loading}
+        fullWidth
+        variant="contained"
+        size="large"
+        onClick={handleClick}
+      >
+        Search
+      </LoadingButton>
     </Box >
   );
 }

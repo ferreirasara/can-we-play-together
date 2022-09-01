@@ -1,33 +1,65 @@
 import { Box } from "@mui/material";
+import { GameDetails } from "../services/player";
 import GameCard from "./GameCard";
+import { uniq, flatten, intersection } from 'lodash';
+import Filters from "./Filters";
+import { useEffect, useMemo, useState } from "react";
 
-export default function GameList() {
+type GameListProps = {
+  games?: GameDetails[]
+}
+export default function GameList({ games }: GameListProps) {
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+  const tags = uniq(flatten(games?.map(game => game?.categories)));
+
+  const handleSelectCategory = (category: string, selected: boolean) => {
+    if (selected) {
+      setSelectedCategories([...selectedCategories?.filter(cur => cur !== category)])
+    } else {
+      setSelectedCategories(uniq([...selectedCategories, category]))
+    }
+  }
+
+  const filteredGames = useMemo(() => {
+    if (selectedCategories?.length) {
+      return games?.filter(game => selectedCategories?.every(cur => game?.categories?.includes(cur)))
+    } else {
+      return games;
+    }
+  }, [games, selectedCategories])
+
   return (
-    <Box
-      sx={{
-        padding: { xs: 1, sm: 2 },
-        maxHeight: '60vh',
-        overflowY: 'auto',
-      }}
-    >
+    <>
+      <Filters
+        tags={tags}
+        handleSelectCategory={handleSelectCategory}
+        selectedCategories={selectedCategories}
+      />
       <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
+        p={1}
+        sx={{
+          maxHeight: '50vh',
+          overflowY: 'auto',
+        }}
       >
-        <GameCard
-          title="Guild Wars 2"
-          imageUrl="https://cdn.cloudflare.steamstatic.com/steam/apps/1284210/header.jpg?t=1661291821"
-          tags={[
-            "MMORPG",
-            "Adventure",
-            "RPG",
-            "Fantasy",
-            "3D",
-          ]}
-        />
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          rowGap={2}
+        >
+          {filteredGames?.map(game =>
+            <GameCard
+              title={game?.name}
+              imageUrl={game?.header_image}
+              description={game?.short_description}
+              tags={game?.categories}
+            />
+          )}
+        </Box>
       </Box>
-    </Box>
+    </>
   )
 }
