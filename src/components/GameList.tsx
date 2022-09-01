@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import { GameDetails } from "../services/player";
 import GameCard from "./GameCard";
-import { uniq, flatten, intersection } from 'lodash';
+import { uniq, flatten } from 'lodash';
 import Filters from "./Filters";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 type GameListProps = {
   games?: GameDetails[]

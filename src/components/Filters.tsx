@@ -1,5 +1,4 @@
 import { Box, Chip } from "@mui/material";
-import { useState } from "react";
 
 type FiltersProps = {
   tags: string[]
