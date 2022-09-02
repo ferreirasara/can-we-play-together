@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, Box, Paper, Snackbar, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Alert, Box, Paper, Snackbar, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import GameList from "../../components/GameList";
 import SearchForm from "../../components/SearchForm";

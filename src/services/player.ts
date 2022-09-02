@@ -1,4 +1,3 @@
-import { Snackbar } from "@mui/material";
 import axios from "axios";
 
 export type Response = {
@@ -25,11 +24,19 @@ export const getPlayerOwnedGames = async (userId1: string, userId2: string): Pro
     const data: Response = response?.data;
 
     return data;
-  } catch (e: any) {
-    console.log(`[getPlayerOwnedGames] ${e?.message}`);
-    return {
-      success: false,
-      message: e?.message,
-    };
+  } catch (error: any) {
+    if (error?.response) {
+      console.log(`[getPlayerOwnedGames] ${error?.response?.data?.message}`);
+      return {
+        success: false,
+        message: error?.response?.data?.message,
+      };
+    } else {
+      console.log(`[getPlayerOwnedGames] ${error?.message}`);
+      return {
+        success: false,
+        message: error?.message,
+      };
+    }
   }
 }

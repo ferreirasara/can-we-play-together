@@ -3,6 +3,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Root from "./pages/root/Root";
 import reportWebVitals from "./reportWebVitals";
+import * as Sentry from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  integrations: [new BrowserTracing()],
+  tracesSampleRate: 1.0,
+});
 
 const darkTheme = createTheme({
   palette: {
