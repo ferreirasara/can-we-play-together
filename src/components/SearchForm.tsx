@@ -1,18 +1,19 @@
 import { LoadingButton } from "@mui/lab";
 import { Box, TextField } from "@mui/material";
+import { useState } from "react";
 
 type SearchFormProps = {
-  handleClick: () => void
+  handleClick: (userId1: string, userId2: string) => void
   loading: boolean
-  onChangeUserId1: (value: string) => void
-  onChangeUserId2: (value: string) => void
 }
 export default function SearchForm({
   handleClick,
   loading,
-  onChangeUserId1,
-  onChangeUserId2,
 }: SearchFormProps) {
+  const [userId1, setUserId1] = useState<string>();
+  const [userId2, setUserId2] = useState<string>();
+  const [error, setError] = useState<string>();
+
   return (
     <Box
       display="flex"
@@ -30,27 +31,40 @@ export default function SearchForm({
           disabled={loading}
           fullWidth
           id="user1"
-          label="Username 1"
+          label="Your steamid"
           variant="outlined"
-          onChange={(value) => onChangeUserId1(value?.currentTarget?.value)}
+          required
+          error={!!(error && !userId1)}
+          helperText={!userId1 && error}
+          onChange={(value) => setUserId1(value?.currentTarget?.value)}
         />
         <TextField
           disabled={loading}
           fullWidth
           id="user2"
-          label="Username 2"
+          label="Your friend's steamid"
           variant="outlined"
-          onChange={(value) => onChangeUserId2(value?.currentTarget?.value)}
+          required
+          error={!!(error && !userId2)}
+          helperText={!userId2 && error}
+          onChange={(value) => setUserId2(value?.currentTarget?.value)}
         />
       </Box>
       <LoadingButton
         loading={loading}
+        loadingIndicator="Analyzing..."
         fullWidth
         variant="contained"
         size="large"
-        onClick={handleClick}
+        onClick={() => {
+          if (!userId1 || !userId2) {
+            setError('You must fill this field.')
+          } else {
+            handleClick(userId1, userId2)
+          }
+        }}
       >
-        Search
+        Can we play together?
       </LoadingButton>
     </Box >
   );

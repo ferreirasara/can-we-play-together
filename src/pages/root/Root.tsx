@@ -9,11 +9,9 @@ export default function Root() {
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [userId1, setUserId1] = useState<string>();
-  const [userId2, setUserId2] = useState<string>();
   const [games, setGames] = useState<GameDetails[]>();
 
-  const handleClick = async () => {
+  const handleClick = async (userId1: string, userId2: string) => {
     setLoading(true);
     try {
       const games = await getPlayerOwnedGames(userId1 || '', userId2 || '');
@@ -47,8 +45,6 @@ export default function Root() {
         <SearchForm
           handleClick={handleClick}
           loading={loading}
-          onChangeUserId1={(value) => setUserId1(value)}
-          onChangeUserId2={(value) => setUserId2(value)}
         />
         <GameList games={games} />
       </Paper>
