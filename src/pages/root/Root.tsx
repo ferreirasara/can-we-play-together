@@ -1,4 +1,4 @@
-import { Alert, Box, Paper, Snackbar, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Alert, Box, Link, Paper, Snackbar, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import GameList from "../../components/GameList";
 import SearchForm from "../../components/SearchForm";
@@ -46,7 +46,7 @@ export default function Root() {
         sx={{
           borderRadius: '16px',
           maxWidth: 700,
-          maxHeight: isDesktop ? 'auto' : '90%',
+          maxHeight: isDesktop ? 'auto' : '85%',
           display: 'flex',
           flexDirection: 'column',
           my: isDesktop ? 12 : 0,
@@ -59,6 +59,14 @@ export default function Root() {
         />
         {games?.length ? <GameList games={games} /> : null}
       </Paper>
+      <Box
+        position="absolute"
+        bottom={5}
+      >
+        <Typography color="#FFF">
+          Developed by <Link underline="none" target="_blank" rel="noopener" href="https://github.com/ferreirasara">Sara Ferreira</Link>
+        </Typography>
+      </Box>
       <Snackbar
         anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
         open={snackbarOpen}

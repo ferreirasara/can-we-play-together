@@ -56,6 +56,7 @@ export default function GameList({ games }: GameListProps) {
               imageUrl={game?.header_image}
               description={game?.short_description}
               tags={game?.categories}
+              appId={game?.appId}
             />
           )}
         </Box>

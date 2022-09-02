@@ -1,12 +1,17 @@
-import { Card, Box, CardContent, Typography, CardMedia, useTheme, Chip, useMediaQuery } from "@mui/material";
+import { Card, Box, CardContent, Typography, CardMedia, useTheme, Chip, useMediaQuery, Link } from "@mui/material";
 
 type GameTitleProps = {
+  appId: number
   title: string
 }
-function GameTitle({ title }: GameTitleProps) {
+function GameTitle({ appId, title }: GameTitleProps) {
   return (
     <CardContent>
-      <Typography variant="h5">{title}</Typography>
+      <Typography variant="h5">
+        <Link color="#FFF" href={`https://store.steampowered.com/app/${appId}`} underline="none" target="_blank" rel="noopener">
+          {title}
+        </Link>
+      </Typography>
     </CardContent>
   )
 }
@@ -41,26 +46,29 @@ function GameImage({ imageUrl }: GameImageProps) {
 }
 
 export type GameCardProps = {
+  appId: number
   title: string
   imageUrl: string
   tags: string[]
   description: string
 }
-export default function GameCard({ imageUrl, tags, title, description }: GameCardProps) {
+export default function GameCard({ imageUrl, tags, title, description, appId }: GameCardProps) {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
   return (
-    <Card sx={{
-      display: 'flex',
-      flexDirection: isDesktop ? 'row' : 'column-reverse',
-      width: '100%',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      p: 1,
-    }}>
+    <Card
+      sx={{
+        display: 'flex',
+        flexDirection: isDesktop ? 'row' : 'column-reverse',
+        width: '100%',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        p: 1,
+      }}
+    >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <GameTitle title={title} />
+        <GameTitle title={title} appId={appId} />
         <GameTags tags={tags} />
       </Box>
       <GameImage imageUrl={imageUrl} />
