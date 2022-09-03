@@ -3,11 +3,11 @@ import { Box, TextField } from "@mui/material";
 import { useState } from "react";
 
 type SearchFormProps = {
-  handleClick: (userId1: string, userId2: string) => void
+  handleSubmit: (userId1: string, userId2: string) => void
   loading: boolean
 }
 export default function SearchForm({
-  handleClick,
+  handleSubmit,
   loading,
 }: SearchFormProps) {
   const [userId1, setUserId1] = useState<string>();
@@ -21,51 +21,55 @@ export default function SearchForm({
       gap={2}
       p={1}
     >
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gap={2}
-      >
-        <TextField
-          disabled={loading}
+      <form data-netlify="true">
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          gap={2}
+          mb={2}
+        >
+          <TextField
+            disabled={loading}
+            fullWidth
+            id="user1"
+            label="Your steamid"
+            variant="outlined"
+            required
+            error={!!(error && !userId1)}
+            helperText={(!userId1 && error) || ""}
+            onChange={(value) => setUserId1(value?.currentTarget?.value)}
+          />
+          <TextField
+            disabled={loading}
+            fullWidth
+            id="user2"
+            label="Your friend's steamid"
+            variant="outlined"
+            required
+            error={!!(error && !userId2)}
+            helperText={(!userId2 && error) || ""}
+            onChange={(value) => setUserId2(value?.currentTarget?.value)}
+          />
+        </Box>
+        <LoadingButton
+          type="submit"
+          loading={loading}
+          loadingIndicator="Analyzing..."
           fullWidth
-          id="user1"
-          label="Your steamid"
-          variant="outlined"
-          required
-          error={!!(error && !userId1)}
-          helperText={!userId1 && error}
-          onChange={(value) => setUserId1(value?.currentTarget?.value)}
-        />
-        <TextField
-          disabled={loading}
-          fullWidth
-          id="user2"
-          label="Your friend's steamid"
-          variant="outlined"
-          required
-          error={!!(error && !userId2)}
-          helperText={!userId2 && error}
-          onChange={(value) => setUserId2(value?.currentTarget?.value)}
-        />
-      </Box>
-      <LoadingButton
-        loading={loading}
-        loadingIndicator="Analyzing..."
-        fullWidth
-        variant="contained"
-        size="large"
-        onClick={() => {
-          if (!userId1 || !userId2) {
-            setError('You must fill this field.')
-          } else {
-            handleClick(userId1, userId2)
-          }
-        }}
-      >
-        Can we play together?
-      </LoadingButton>
+          variant="contained"
+          size="large"
+          onClick={() => {
+            if (!userId1 || !userId2) {
+              setError('You must fill this field.')
+            } else {
+              handleSubmit(userId1, userId2)
+            }
+          }}
+        >
+          Can we play together?
+        </LoadingButton>
+      </form>
     </Box >
   );
 }

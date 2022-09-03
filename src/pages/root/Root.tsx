@@ -13,7 +13,7 @@ export default function Root() {
   const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
 
-  const handleClick = async (userId1: string, userId2: string) => {
+  const handleSubmit = async (userId1: string, userId2: string) => {
     setGames([]);
     setLoading(true);
     try {
@@ -54,7 +54,7 @@ export default function Root() {
         }}
       >
         <SearchForm
-          handleClick={handleClick}
+          handleSubmit={handleSubmit}
           loading={loading}
         />
         {games?.length ? <GameList games={games} /> : null}
@@ -64,7 +64,7 @@ export default function Root() {
         bottom={5}
       >
         <Typography color="#FFF">
-          Developed by <Link underline="none" target="_blank" rel="noopener" href="https://github.com/ferreirasara">Sara Ferreira</Link>
+          Developed by <Link underline="none" target="_blank" rel="noopener" href="https://github.com/ferreirasara">Sara Ferreira</Link> | Icon by <Link underline="none" target="_blank" rel="noopener" href="https://freeicons.io/profile/103766">Satawat Foto Anukul</Link> on <Link underline="none" target="_blank" rel="noopener" href="https://freeicons.io">freeicons.io</Link>
         </Typography>
       </Box>
       <Snackbar
