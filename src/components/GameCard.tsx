@@ -1,18 +1,14 @@
-import { Card, Box, CardContent, Typography, CardMedia, useTheme, Chip, useMediaQuery, Link } from "@mui/material";
+import { Card, Box, CardContent, Typography, CardMedia, useTheme, Chip, useMediaQuery } from "@mui/material";
+import { getGameUrl, openLink } from "../utils/utils";
 
 type GameTitleProps = {
-  appId: number
   title: string
 }
-function GameTitle({ appId, title }: GameTitleProps) {
+function GameTitle({ title }: GameTitleProps) {
   return (
     <CardContent>
-      <Typography variant="h5">
-        <Link color="#FFF" href={`https://store.steampowered.com/app/${appId}`} underline="none" target="_blank" rel="noopener">
-          {title}
-        </Link>
-      </Typography>
-    </CardContent>
+      <Typography variant="h5">{title}</Typography>
+    </CardContent >
   )
 }
 
@@ -39,7 +35,10 @@ function GameImage({ imageUrl }: GameImageProps) {
   return (
     <CardMedia
       component="img"
-      sx={{ height: 215 * 0.7, width: 460 * 0.7 }}
+      sx={{
+        height: 215 * 0.7,
+        width: 460 * 0.7,
+      }}
       image={imageUrl}
     />
   )
@@ -65,10 +64,15 @@ export default function GameCard({ imageUrl, tags, title, description, appId }: 
         justifyContent: 'space-between',
         alignItems: 'center',
         p: 1,
+        '&:hover': {
+          backgroundColor: '#1f1f1f',
+          cursor: "pointer"
+        },
       }}
+      onClick={() => openLink(getGameUrl(appId))}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <GameTitle title={title} appId={appId} />
+        <GameTitle title={title} />
         <GameTags tags={tags} />
       </Box>
       <GameImage imageUrl={imageUrl} />

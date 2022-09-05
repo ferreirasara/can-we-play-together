@@ -1,6 +1,8 @@
-import { Alert, Box, Link, Paper, Snackbar, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Alert, Box, Paper, Snackbar, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import GameList from "../../components/GameList";
+import GithubLink from "../../components/GithubLink";
+import InfoModalButton from "../../components/InfoModal";
 import SearchForm from "../../components/SearchForm";
 import { GameDetails, getPlayerOwnedGames } from "../../services/player";
 
@@ -62,9 +64,10 @@ export default function Root() {
       <Box
         position="absolute"
         bottom={5}
+
       >
         <Typography color="#FFF">
-          Developed by <Link underline="none" target="_blank" rel="noopener" href="https://github.com/ferreirasara">Sara Ferreira</Link> | Icon by <Link underline="none" target="_blank" rel="noopener" href="https://freeicons.io/profile/103766">Satawat Foto Anukul</Link> on <Link underline="none" target="_blank" rel="noopener" href="https://freeicons.io">freeicons.io</Link>
+          Developed by <GithubLink /> <InfoModalButton size="small" />
         </Typography>
       </Box>
       <Snackbar
