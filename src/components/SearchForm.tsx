@@ -21,7 +21,8 @@ export default function SearchForm({
       gap={2}
       p={1}
     >
-      <form data-netlify="true">
+      <form>
+        <input type="hidden" name="form-name" value="search" />
         <Box
           display="flex"
           justifyContent="center"
@@ -33,6 +34,7 @@ export default function SearchForm({
             disabled={loading}
             fullWidth
             id="user1"
+            name="user1"
             label="Your steamid"
             variant="outlined"
             required
@@ -44,6 +46,7 @@ export default function SearchForm({
             disabled={loading}
             fullWidth
             id="user2"
+            name="user2"
             label="Your friend's steamid"
             variant="outlined"
             required
