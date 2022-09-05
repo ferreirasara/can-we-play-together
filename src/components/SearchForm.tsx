@@ -1,5 +1,5 @@
 import { LoadingButton } from "@mui/lab";
-import { Box, TextField } from "@mui/material";
+import { Alert, Box, TextField } from "@mui/material";
 import { useState } from "react";
 
 type SearchFormProps = {
@@ -13,6 +13,20 @@ export default function SearchForm({
   const [userId1, setUserId1] = useState<string>();
   const [userId2, setUserId2] = useState<string>();
   const [error, setError] = useState<string>();
+  const [errorAlertVisible, setErrorAlertVisible] = useState<boolean>(false);
+
+  const handleButtonClick = () => {
+    if (!userId1 || !userId2) {
+      setErrorAlertVisible(true);
+      setError('You must fill both fields.')
+    } else if (userId1 === userId2) {
+      setErrorAlertVisible(true);
+      setError('The usernames must be different.');
+    } else {
+      setErrorAlertVisible(false);
+      handleSubmit(userId1, userId2);
+    }
+  }
 
   return (
     <Box
@@ -31,25 +45,24 @@ export default function SearchForm({
           disabled={loading}
           fullWidth
           id="user1"
-          label="Your steamid"
+          label="Your username"
           variant="outlined"
           required
           error={!!(error && !userId1)}
-          helperText={(!userId1 && error) || ""}
           onChange={(value) => setUserId1(value?.currentTarget?.value)}
         />
         <TextField
           disabled={loading}
           fullWidth
           id="user2"
-          label="Your friend's steamid"
+          label="Your friend's username"
           variant="outlined"
           required
           error={!!(error && !userId2)}
-          helperText={(!userId2 && error) || ""}
           onChange={(value) => setUserId2(value?.currentTarget?.value)}
         />
       </Box>
+      {errorAlertVisible ? <Alert onClose={() => setErrorAlertVisible(false)} severity="error">{error}</Alert> : null}
       <LoadingButton
         type="submit"
         loading={loading}
@@ -57,13 +70,7 @@ export default function SearchForm({
         fullWidth
         variant="contained"
         size="large"
-        onClick={() => {
-          if (!userId1 || !userId2) {
-            setError('You must fill this field.')
-          } else {
-            handleSubmit(userId1, userId2)
-          }
-        }}
+        onClick={handleButtonClick}
       >
         Can we play together?
       </LoadingButton>
