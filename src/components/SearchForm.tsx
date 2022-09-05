@@ -21,58 +21,53 @@ export default function SearchForm({
       gap={2}
       p={1}
     >
-      <form>
-        <input type="hidden" name="form-name" value="search" />
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          gap={2}
-          mb={2}
-        >
-          <TextField
-            disabled={loading}
-            fullWidth
-            id="user1"
-            name="user1"
-            label="Your steamid"
-            variant="outlined"
-            required
-            error={!!(error && !userId1)}
-            helperText={(!userId1 && error) || ""}
-            onChange={(value) => setUserId1(value?.currentTarget?.value)}
-          />
-          <TextField
-            disabled={loading}
-            fullWidth
-            id="user2"
-            name="user2"
-            label="Your friend's steamid"
-            variant="outlined"
-            required
-            error={!!(error && !userId2)}
-            helperText={(!userId2 && error) || ""}
-            onChange={(value) => setUserId2(value?.currentTarget?.value)}
-          />
-        </Box>
-        <LoadingButton
-          type="submit"
-          loading={loading}
-          loadingIndicator="Analyzing..."
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        gap={2}
+        mb={2}
+      >
+        <TextField
+          disabled={loading}
           fullWidth
-          variant="contained"
-          size="large"
-          onClick={() => {
-            if (!userId1 || !userId2) {
-              setError('You must fill this field.')
-            } else {
-              handleSubmit(userId1, userId2)
-            }
-          }}
-        >
-          Can we play together?
-        </LoadingButton>
-      </form>
+          id="user1"
+          label="Your steamid"
+          variant="outlined"
+          required
+          error={!!(error && !userId1)}
+          helperText={(!userId1 && error) || ""}
+          onChange={(value) => setUserId1(value?.currentTarget?.value)}
+        />
+        <TextField
+          disabled={loading}
+          fullWidth
+          id="user2"
+          label="Your friend's steamid"
+          variant="outlined"
+          required
+          error={!!(error && !userId2)}
+          helperText={(!userId2 && error) || ""}
+          onChange={(value) => setUserId2(value?.currentTarget?.value)}
+        />
+      </Box>
+      <LoadingButton
+        type="submit"
+        loading={loading}
+        loadingIndicator="Analyzing..."
+        fullWidth
+        variant="contained"
+        size="large"
+        onClick={() => {
+          if (!userId1 || !userId2) {
+            setError('You must fill this field.')
+          } else {
+            handleSubmit(userId1, userId2)
+          }
+        }}
+      >
+        Can we play together?
+      </LoadingButton>
     </Box >
   );
 }
