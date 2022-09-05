@@ -3,9 +3,10 @@ import { Box, Chip } from "@mui/material";
 type FiltersProps = {
   tags: string[]
   handleSelectCategory: (category: string, selected: boolean) => void
+  handleCleanFilters: () => void
   selectedCategories: string[] | undefined
 }
-export default function Filters({ tags, handleSelectCategory, selectedCategories }: FiltersProps) {
+export default function Filters({ tags, handleSelectCategory, handleCleanFilters, selectedCategories }: FiltersProps) {
 
   return (
     <Box p={1} display="flex" gap={1} flexWrap="wrap">
@@ -19,6 +20,16 @@ export default function Filters({ tags, handleSelectCategory, selectedCategories
           onClick={() => handleSelectCategory(tag, !!selectedCategories?.includes(tag))}
         />
       )}
+      {selectedCategories?.length
+        ? <Chip
+          label="Remove filters"
+          color="error"
+          variant="outlined"
+          onClick={() => handleCleanFilters()}
+          clickable
+        />
+        : null
+      }
     </Box>
   )
 }

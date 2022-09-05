@@ -34,6 +34,7 @@ export default function GameList({ games }: GameListProps) {
       <Filters
         tags={tags}
         handleSelectCategory={handleSelectCategory}
+        handleCleanFilters={() => setSelectedCategories([])}
         selectedCategories={selectedCategories}
       />
       <Box
