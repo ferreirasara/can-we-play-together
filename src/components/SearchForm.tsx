@@ -26,7 +26,6 @@ export default function SearchForm({
         justifyContent="center"
         alignItems="center"
         gap={2}
-        mb={2}
       >
         <TextField
           disabled={loading}
