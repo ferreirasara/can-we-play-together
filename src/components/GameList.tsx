@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Alert, Box } from "@mui/material";
 import { GameDetails } from "../services/player";
 import GameCard from "./GameCard";
 import { uniq, flatten } from 'lodash';
@@ -29,6 +29,9 @@ export default function GameList({ games }: GameListProps) {
     }
   }, [games, selectedCategories])
 
+  const foundedGames: number = filteredGames?.length || 0;
+  const foundedGamesMessage = `Founded ${foundedGames}${selectedCategories?.length ? ' filter-based ' : ' '}game${foundedGames > 1 ? 's' : ''} that you can play together!`
+
   return (
     <>
       <Filters
@@ -50,7 +53,11 @@ export default function GameList({ games }: GameListProps) {
           justifyContent="center"
           alignItems="center"
           rowGap={2}
+          px={1}
         >
+          {filteredGames?.length
+            ? <Alert severity="success" sx={{ width: '100%' }}>{foundedGamesMessage}</Alert>
+            : null}
           {filteredGames?.map(game =>
             <GameCard
               title={game?.name}
