@@ -49,9 +49,8 @@ export type GameCardProps = {
   title: string
   imageUrl: string
   tags: string[]
-  description: string
 }
-export default function GameCard({ imageUrl, tags, title, description, appId }: GameCardProps) {
+export default function GameCard({ imageUrl, tags, title, appId }: GameCardProps) {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 

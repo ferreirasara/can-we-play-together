@@ -48,7 +48,7 @@ export default function Root() {
         sx={{
           borderRadius: '16px',
           maxWidth: 700,
-          maxHeight: isDesktop ? 'auto' : '85%',
+          maxHeight: '83%',
           display: 'flex',
           flexDirection: 'column',
           my: isDesktop ? 12 : 0,
@@ -63,8 +63,7 @@ export default function Root() {
       </Paper>
       <Box
         position="absolute"
-        bottom={5}
-
+        bottom={2}
       >
         <Typography color="#FFF">
           Developed by <GithubLink /> <InfoModalButton size="small" />
