@@ -14,7 +14,7 @@ export type GameDetails = {
 }
 
 const baseUrl = process.env.NODE_ENV === 'production'
-  ? 'https://can-we-play-together.onrender.com/gamesInCommon'
+  ? 'https://cwpt-api.herokuapp.com/gamesInCommon'
   : 'http://localhost:8080/gamesInCommon'
 
 export const getPlayerOwnedGames = async (userId1: string, userId2: string): Promise<Response> => {
