@@ -45,12 +45,12 @@ function GameImage({ imageUrl }: GameImageProps) {
 }
 
 export type GameCardProps = {
-  appId: number
+  appid: number
   title: string
   imageUrl: string
   tags: string[]
 }
-export default function GameCard({ imageUrl, tags, title, appId }: GameCardProps) {
+export default function GameCard({ imageUrl, tags, title, appid }: GameCardProps) {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
@@ -68,7 +68,7 @@ export default function GameCard({ imageUrl, tags, title, appId }: GameCardProps
           cursor: "pointer"
         },
       }}
-      onClick={() => openLink(getGameUrl(appId))}
+      onClick={() => openLink(getGameUrl(appid))}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <GameTitle title={title} />

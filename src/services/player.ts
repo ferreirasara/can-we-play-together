@@ -7,7 +7,7 @@ export type Response = {
 }
 
 export type GameDetails = {
-  appId: number,
+  appid: number,
   name: string,
   categories: string[]
   header_image: string,
