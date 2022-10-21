@@ -30,7 +30,7 @@ export default function GameList({ games }: GameListProps) {
   }, [games, selectedCategories])
 
   const foundedGames: number = filteredGames?.length || 0;
-  const foundedGamesMessage = `Founded ${foundedGames} game${foundedGames > 1 ? 's' : ''}${selectedCategories?.length ? ' for this filters' : ''}!`
+  const foundedGamesMessage = `Found ${foundedGames} game${foundedGames > 1 ? 's' : ''}${selectedCategories?.length ? ' for this filters' : ''}!`
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function GameList({ games }: GameListProps) {
         >
           {filteredGames?.length
             ? <Alert severity="success" sx={{ width: '100%' }}>{foundedGamesMessage}</Alert>
-            : <Alert severity="warning" sx={{ width: '100%' }}>Founded 0 games for this filters :(</Alert>}
+            : <Alert severity="warning" sx={{ width: '100%' }}>Found 0 games for this filters :(</Alert>}
           {filteredGames?.map(game =>
             <GameCard
               title={game?.name}
