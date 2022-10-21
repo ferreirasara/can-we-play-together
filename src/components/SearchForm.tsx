@@ -1,6 +1,7 @@
 import { LoadingButton } from "@mui/lab";
-import { Alert, Box, TextField } from "@mui/material";
+import { Alert, Box, CircularProgress, TextField, Typography } from "@mui/material";
 import { useState } from "react";
+import SteamidHelpModalButton from "./SteamidHelpModal";
 
 type SearchFormProps = {
   handleSubmit: (userId1: string, userId2: string) => void
@@ -32,6 +33,7 @@ export default function SearchForm({
     <Box
       display="flex"
       flexDirection="column"
+      alignItems="center"
       gap={2}
       p={1}
     >
@@ -62,11 +64,17 @@ export default function SearchForm({
           onChange={(value) => setUserId2(value?.currentTarget?.value)}
         />
       </Box>
+      <SteamidHelpModalButton />
       {errorAlertVisible ? <Alert onClose={() => setErrorAlertVisible(false)} severity="error">{error}</Alert> : null}
       <LoadingButton
         type="submit"
         loading={loading}
-        loadingIndicator="Analyzing..."
+        loadingIndicator={
+          <Box display="flex" alignItems="center" gap={1}>
+            <CircularProgress size={15} />
+            <Typography>Analyzing...</Typography>
+          </Box>
+        }
         fullWidth
         variant="contained"
         size="large"
