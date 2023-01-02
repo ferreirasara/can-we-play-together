@@ -72,7 +72,7 @@ export default function Root() {
       <Snackbar
         anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
         open={snackbarOpen}
-        autoHideDuration={6000}
+        autoHideDuration={null}
         onClose={() => setSnackbarOpen(false)}
       >
         <Alert
