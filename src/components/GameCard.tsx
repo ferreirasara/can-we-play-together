@@ -1,5 +1,5 @@
 import { Card, Box, CardContent, Typography, CardMedia, useTheme, Chip, useMediaQuery } from "@mui/material";
-import { getGameUrl, openLink } from "../utils/utils";
+import { amplitudeEvent, getGameUrl, openLink } from "../utils/utils";
 
 type GameTitleProps = {
   title: string
@@ -68,7 +68,10 @@ export default function GameCard({ imageUrl, tags, title, appid }: GameCardProps
           cursor: "pointer"
         },
       }}
-      onClick={() => openLink(getGameUrl(appid))}
+      onClick={() => {
+        openLink(getGameUrl(appid))
+        amplitudeEvent('Game card', { appid })
+      }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <GameTitle title={title} />

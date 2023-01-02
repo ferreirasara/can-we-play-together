@@ -1,6 +1,7 @@
 import { LoadingButton } from "@mui/lab";
 import { Alert, Box, CircularProgress, TextField, Typography } from "@mui/material";
 import { useState } from "react";
+import { amplitudeEvent } from "../utils/utils";
 import SteamidHelpModalButton from "./SteamidHelpModal";
 
 type SearchFormProps = {
@@ -25,6 +26,7 @@ export default function SearchForm({
       setError('The usernames must be different.');
     } else {
       setErrorAlertVisible(false);
+      amplitudeEvent('Form submit', { userId1, userId2 });
       handleSubmit(userId1, userId2);
     }
   }

@@ -2,7 +2,7 @@ import { GitHub, InfoOutlined } from "@mui/icons-material";
 import CloseIcon from '@mui/icons-material/Close';
 import { Avatar, Box, Dialog, DialogContent, DialogTitle, IconButton, List, ListItem, ListItemAvatar, ListItemText, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
-import { openLink } from "../utils/utils";
+import { amplitudeEvent, openLink } from "../utils/utils";
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 type InfoModalTitleProps = {
@@ -32,8 +32,9 @@ type InfoListItemProps = {
   link: string
   primaryText: string
   secondaryText: string
+  onClick: () => void,
 }
-function InfoListItem({ icon, link, primaryText, secondaryText }: InfoListItemProps) {
+function InfoListItem({ icon, link, primaryText, secondaryText, onClick }: InfoListItemProps) {
   const listIemStyle = {
     borderRadius: '16px',
     '&:hover': {
@@ -45,7 +46,10 @@ function InfoListItem({ icon, link, primaryText, secondaryText }: InfoListItemPr
   return (
     <ListItem
       sx={listIemStyle}
-      onClick={() => openLink(link)}
+      onClick={() => {
+        openLink(link)
+        onClick()
+      }}
     >
       <ListItemAvatar>
         <Avatar>
@@ -69,18 +73,21 @@ function InfoModalContent() {
           link='https://github.com/ferreirasara/can-we-play-together'
           primaryText="Frontend Repo"
           secondaryText="ferreirasara/can-we-play-together"
+          onClick={() => amplitudeEvent('Frontend github link')}
         />
         <InfoListItem
           icon={<GitHub />}
           link='https://github.com/ferreirasara/can-we-play-together'
           primaryText="Backend Repo"
           secondaryText="ferreirasara/can-we-play-together-api"
+          onClick={() => amplitudeEvent('Backend github link')}
         />
         <InfoListItem
           icon={<StarOutlineIcon />}
           link='https://freeicons.io/profile/103766'
           primaryText="Favicon"
           secondaryText="Icon by Satawat Foto Anukul on freeicons.io"
+          onClick={() => amplitudeEvent('Favicon link')}
         />
       </List>
     </DialogContent>

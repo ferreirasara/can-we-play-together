@@ -4,6 +4,7 @@ import GameCard from "./GameCard";
 import { uniq, flatten } from 'lodash';
 import Filters from "./Filters";
 import { useMemo, useState } from "react";
+import { amplitudeEvent } from "../utils/utils";
 
 type GameListProps = {
   games?: GameDetails[]
@@ -14,9 +15,12 @@ export default function GameList({ games }: GameListProps) {
   const tags = uniq(flatten(games?.map(game => game?.categories)));
 
   const handleSelectCategory = (category: string, selected: boolean) => {
+    amplitudeEvent('Select/deselect category', { category })
     if (selected) {
+      console.log('selected', category)
       setSelectedCategories([...selectedCategories?.filter(cur => cur !== category)])
     } else {
+      console.log('deselected', category)
       setSelectedCategories(uniq([...selectedCategories, category]))
     }
   }

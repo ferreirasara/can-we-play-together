@@ -1,6 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, Dialog, DialogContent, DialogTitle, IconButton, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
+import { amplitudeEvent } from '../utils/utils';
 
 type SteamidHelpModalTitleProps = {
   onClose: () => void
@@ -85,7 +86,10 @@ export default function SteamidHelpModalButton() {
     <>
       <Typography
         variant="caption"
-        onClick={() => setSteamidHelpModalOpen(true)}
+        onClick={() => {
+          setSteamidHelpModalOpen(true)
+          amplitudeEvent('Steamid help modal')
+        }}
         sx={{
           cursor: "pointer",
           color: "#1976d2"
