@@ -125,7 +125,10 @@ export default function InfoModalButton({ size }: InfoModalButtonProps) {
     <>
       <IconButton
         size={size}
-        onClick={() => setInfoModalOpen(true)}
+        onClick={() => {
+          setInfoModalOpen(true)
+          amplitudeEvent('Open info modal');
+        }}
       >
         <InfoOutlined />
       </IconButton>
