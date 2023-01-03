@@ -15,10 +15,11 @@ export default function GameList({ games }: GameListProps) {
   const tags = uniq(flatten(games?.map(game => game?.categories)));
 
   const handleSelectCategory = (category: string, selected: boolean) => {
-    amplitudeEvent('Select/deselect category', { category })
     if (selected) {
+      amplitudeEvent('Select category', { category })
       setSelectedCategories([...selectedCategories?.filter(cur => cur !== category)])
     } else {
+      amplitudeEvent('Deselect category', { category })
       setSelectedCategories(uniq([...selectedCategories, category]))
     }
   }
