@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <div
+    className="MuiBox-root css-14ty2g0"
+  >
+    <div
+      className="MuiButtonBase-root MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-outlinedDefault css-10kp3pj-MuiButtonBase-root-MuiChip-root"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+      >
+        tag1
+      </span>
+    </div>
+    <div
+      className="MuiButtonBase-root MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-outlinedDefault css-10kp3pj-MuiButtonBase-root-MuiChip-root"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+      >
+        tag2
+      </span>
+    </div>
+  </div>,
+  <div
+    className="MuiBox-root css-hdpnao"
+  >
+    <div
+      className="MuiBox-root css-qi0ctz"
+    >
+      <div
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardSuccess MuiAlert-standard css-sp7f89-MuiPaper-root-MuiAlert-root"
+        role="alert"
+      >
+        <div
+          className="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+            data-testid="SuccessOutlinedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4C12.76,4 13.5,4.11 14.2, 4.31L15.77,2.74C14.61,2.26 13.34,2 12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0, 0 22,12M7.91,10.08L6.5,11.5L11,16L21,6L19.59,4.58L11,13.17L7.91,10.08Z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+        >
+          Found 3 games!
+        </div>
+      </div>
+      <div
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-mr8rz7-MuiPaper-root-MuiCard-root"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiBox-root css-j7qwjs"
+        >
+          <div
+            className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+          >
+            <h5
+              className="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+            >
+              Game for test 1
+            </h5>
+          </div>
+          <div
+            className="MuiBox-root css-10x12t9"
+          >
+            <div
+              className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-gac2fo-MuiChip-root"
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+            >
+              <span
+                className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              >
+                tag1
+              </span>
+            </div>
+            <div
+              className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-gac2fo-MuiChip-root"
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+            >
+              <span
+                className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              >
+                tag2
+              </span>
+            </div>
+          </div>
+        </div>
+        <img
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1fn6xi0-MuiCardMedia-root"
+          src="https://cdn.akamai.steamstatic.com/steam/apps/246620/header.jpg?t=1663763693"
+        />
+      </div>
+      <div
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-mr8rz7-MuiPaper-root-MuiCard-root"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiBox-root css-j7qwjs"
+        >
+          <div
+            className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+          >
+            <h5
+              className="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+            >
+              Game for test 2
+            </h5>
+          </div>
+          <div
+            className="MuiBox-root css-10x12t9"
+          >
+            <div
+              className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-gac2fo-MuiChip-root"
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+            >
+              <span
+                className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              >
+                tag1
+              </span>
+            </div>
+            <div
+              className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-gac2fo-MuiChip-root"
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+            >
+              <span
+                className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              >
+                tag2
+              </span>
+            </div>
+          </div>
+        </div>
+        <img
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1fn6xi0-MuiCardMedia-root"
+          src="https://cdn.akamai.steamstatic.com/steam/apps/246620/header.jpg?t=1663763693"
+        />
+      </div>
+      <div
+        className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-mr8rz7-MuiPaper-root-MuiCard-root"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiBox-root css-j7qwjs"
+        >
+          <div
+            className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+          >
+            <h5
+              className="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+            >
+              Game for test 3
+            </h5>
+          </div>
+          <div
+            className="MuiBox-root css-10x12t9"
+          >
+            <div
+              className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-gac2fo-MuiChip-root"
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+            >
+              <span
+                className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              >
+                tag1
+              </span>
+            </div>
+            <div
+              className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-gac2fo-MuiChip-root"
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+            >
+              <span
+                className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              >
+                tag2
+              </span>
+            </div>
+          </div>
+        </div>
+        <img
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1fn6xi0-MuiCardMedia-root"
+          src="https://cdn.akamai.steamstatic.com/steam/apps/246620/header.jpg?t=1663763693"
+        />
+      </div>
+    </div>
+  </div>,
+]
+`;

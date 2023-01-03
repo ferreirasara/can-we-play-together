@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<span
+  className="MuiTypography-root MuiTypography-caption css-1oob06v-MuiTypography-root"
+  onClick={[Function]}
+>
+  How can I find my steamid?
+</span>
+`;

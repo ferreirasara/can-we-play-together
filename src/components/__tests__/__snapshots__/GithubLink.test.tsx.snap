@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<a
+  className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-1cmksfb-MuiTypography-root-MuiLink-root"
+  href="https://github.com/ferreirasara"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  rel="noopener"
+  target="_blank"
+>
+  Sara Ferreira
+</a>
+`;

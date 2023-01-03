@@ -17,10 +17,8 @@ export default function GameList({ games }: GameListProps) {
   const handleSelectCategory = (category: string, selected: boolean) => {
     amplitudeEvent('Select/deselect category', { category })
     if (selected) {
-      console.log('selected', category)
       setSelectedCategories([...selectedCategories?.filter(cur => cur !== category)])
     } else {
-      console.log('deselected', category)
       setSelectedCategories(uniq([...selectedCategories, category]))
     }
   }
