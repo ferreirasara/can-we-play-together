@@ -1,6 +1,7 @@
 import * as amplitude from '@amplitude/analytics-browser';
 
 export const amplitudeEvent = (eventName: string, eventProperties?: Record<string, any>) => {
+  console.log("🚀 | amplitudeEvent | process.env.AMPLITUDE_ID", process.env.AMPLITUDE_ID);
   if (!process.env.AMPLITUDE_ID) return;
   amplitude.init(process.env.AMPLITUDE_ID);
   amplitude.track(eventName, eventProperties);
